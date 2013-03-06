@@ -1,0 +1,12 @@
+$OpenBSD$
+--- src/mkbuiltins.orig	Tue Mar 15 10:18:06 2011
++++ src/mkbuiltins	Tue Mar  5 05:19:51 2013
+@@ -97,7 +97,7 @@ cat <<\!
+  */
+ 
+ !
+-sed 's/	-[a-z]*//' $temp2 | nl -b a -v 0 | LC_COLLATE=C sort -u -k 3,3 |
++sed 's/	-[a-z]*//' $temp2 | awk '{ print "  " FNR-1 "  " $0 }'  | LC_COLLATE=C sort -u -k 3,3 |
+ tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ |
+ 	awk '{	printf "#define %s (builtincmd + %d)\n", $3, $1}'
+ printf '\n#define NUMBUILTINS %d\n' $(wc -l < $temp2)
