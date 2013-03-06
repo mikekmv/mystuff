@@ -1,0 +1,22 @@
+$OpenBSD$
+--- util/cache-utils.c.orig	Sat Feb 16 03:05:35 2013
++++ util/cache-utils.c	Mon Mar  4 14:49:42 2013
+@@ -55,9 +55,16 @@ static void ppc_init_cacheline_sizes(void)
+         qemu_cache_conf.icache_bsize = cacheline;
+     }
+ }
+-#endif
+ 
+-#if defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
++#elif defined(__OpenBSD__)
++
++static void ppc_init_cacheline_sizes(void)
++{
++    qemu_cache_conf.dcache_bsize = 32;
++    qemu_cache_conf.icache_bsize = 32;
++}
++
++#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
+ #include <errno.h>
+ #include <stdio.h>
+ #include <stdlib.h>
