@@ -8,8 +8,6 @@ CATEGORIES =	shells
 HOMEPAGE =	http://gondor.apana.org.au/~herbert/dash/
 MASTER_SITES =	${HOMEPAGE}files/
 
-MAINTAINER =	Mike Korbakov <mike-kmv@yandex.ru>
-
 # BSD, GPLv2
 PERMIT_PACKAGE_CDROM =	Yes
 PERMIT_PACKAGE_FTP =	Yes
