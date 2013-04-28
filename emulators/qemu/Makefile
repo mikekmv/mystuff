@@ -11,8 +11,6 @@ EXTRACT_SUFX=	.tar.bz2
 
 HOMEPAGE=	http://www.qemu.org/
 
-MAINTAINER=	ports@openbsd.org
-
 # GPLv2, LGPLv2 and BSD
 PERMIT_PACKAGE_CDROM=	Yes
 PERMIT_PACKAGE_FTP=	Yes
